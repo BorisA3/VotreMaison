@@ -1,0 +1,42 @@
+﻿@model MaisonVotre.Models.PedidoDetalle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PedidoDetalle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pedidos.PedidoId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pedidos.PedidoId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productos.ProductoNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productos.ProductoNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PedidoDetalleSubTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedidoDetalleSubTotal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PedidoDetalleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

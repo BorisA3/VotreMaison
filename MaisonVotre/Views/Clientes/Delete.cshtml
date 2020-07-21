@@ -1,0 +1,64 @@
+﻿@model MaisonVotre.Models.Cliente
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteTelefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteTelefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientIdentificationId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientIdentificationId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteEdad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteEdad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteSexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteSexo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

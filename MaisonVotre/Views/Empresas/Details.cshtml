@@ -1,0 +1,66 @@
+﻿@model MaisonVotre.Models.Empresa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Empresa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ciudades.CiudadNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ciudades.CiudadNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaImagenes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaImagenes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaLogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaLogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaTipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaTipo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmpresaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
