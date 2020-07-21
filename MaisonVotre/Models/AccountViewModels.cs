@@ -49,6 +49,10 @@ namespace MaisonVotre.Models
     public class LoginViewModel
     {
         [Required]
+        [Display(Name = "Nombre")]
+        public string UserName { get; set; }
+
+        //[Required]
         [Display(Name = "Correo electrónico")]
         [EmailAddress]
         public string Email { get; set; }
@@ -65,12 +69,17 @@ namespace MaisonVotre.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Nombre")]
+        public string Name { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
+
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
