@@ -27,11 +27,11 @@ namespace MaisonVotre.Data
 
         public System.Data.Entity.DbSet<MaisonVotre.Models.Empresa> Empresas { get; set; }
 
-        public System.Data.Entity.DbSet<MaisonVotre.Models.Pedido> Pedidos { get; set; }
+        public System.Data.Entity.DbSet<MaisonVotre.Models.Pedido> Pedidoes { get; set; }
 
         public System.Data.Entity.DbSet<MaisonVotre.Models.PedidoDetalle> PedidoDetalles { get; set; }
 
-        public System.Data.Entity.DbSet<MaisonVotre.Models.Producto> Productos { get; set; }
+        public System.Data.Entity.DbSet<MaisonVotre.Models.Producto> Productoes { get; set; }
 
     }
 }

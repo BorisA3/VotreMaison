@@ -223,6 +223,7 @@
     <Content Include="img\1.jpg" />
     <Content Include="img\2.jpg" />
     <Content Include="img\3.jpg" />
+    <Content Include="img\equipo.png" />
     <Content Include="img\Logo1.fw.png" />
     <Content Include="img\ordenar.png" />
     <Content Include="img\pago.png" />
