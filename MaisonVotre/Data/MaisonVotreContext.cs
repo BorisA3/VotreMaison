@@ -19,18 +19,6 @@ namespace MaisonVotre.Data
         {
         }
 
-        public System.Data.Entity.DbSet<MaisonVotre.Models.Categoria> Categorias { get; set; }
-
-        public System.Data.Entity.DbSet<MaisonVotre.Models.Ciudad> Ciudads { get; set; }
-
-        public System.Data.Entity.DbSet<MaisonVotre.Models.Cliente> Clientes { get; set; }
-
-        public System.Data.Entity.DbSet<MaisonVotre.Models.Empresa> Empresas { get; set; }
-
-        public System.Data.Entity.DbSet<MaisonVotre.Models.Pedido> Pedidoes { get; set; }
-
-        public System.Data.Entity.DbSet<MaisonVotre.Models.PedidoDetalle> PedidoDetalles { get; set; }
-
-        public System.Data.Entity.DbSet<MaisonVotre.Models.Producto> Productoes { get; set; }
+        
     }
 }

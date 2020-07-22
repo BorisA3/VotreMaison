@@ -26,7 +26,8 @@
             <div class="navbar-collapse collapse ">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li> @Html.ActionLink("Ciudad", "Index", "Ciudads")</li>
+
+                    @* INICIO DE MOSTRAR BOTON DE OPCIONES SI EL USUARIO TIENE EL ROL DE ADMIN *@
                     @if (User.IsInRole("admin"))
                     {
                         <li>
@@ -37,19 +38,18 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-
-
                                 <li role="separator" class="divider"></li>
                                 <li>@Html.ActionLink("Usuarios", "Index", "ApplicationUsers")</li>
                                 <li role="separator" class="divider"></li>
-                                
-
                             </ul>
                         </li>
                     }
-                        <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                    </ul>
+                    @* INICIO DE MOSTRAR BOTON DE OPCIONES SI EL USUARIO TIENE EL ROL DE ADMIN *@
+
+
+                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

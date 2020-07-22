@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MaisonVotre.Models.User_Role>
+
+@{
+    ViewBag.Title = "UserRoles";
+    var userroles = Model.ToArray();
+    string name = userroles[0].UserName;
+    string rol = userroles[0].RolName;
+    int x = 0;
+}
+
+<h2>Roles de @name</h2>
+
+<p>
+    @Html.ActionLink("Agregar Rol", "AggRole", new { usrname = @name })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RolName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @if (x == 0)
+                {
+                    @Html.DisplayFor(modelItem => item.UserName)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RolName)
+            </td>
+            <td>
+                @if (@rol != null)
+                {
+                    @Html.ActionLink("Quitar Rol", "DeleteUserRol", new { rol = item.RolName, user = @name })
+                }
+
+            </td>
+        </tr>
+        x++;
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Volver Atrás", "Index")
+</p>
