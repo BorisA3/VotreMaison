@@ -36,11 +36,7 @@ namespace MaisonVotre.Models
         [Required]
         public float ProductExistencia { get; set; }
 
-        [Display(Name = "TipodeProducto")]
-        [Required]
-        public string ProductoTipo { get; set; }
-
-        [Display(Name = "ProductoDescripcion")]
+        [Display(Name = "Producto Descripcion")]
         [Required]
         public string Productodescripcion { get; set; }
         [Display(Name = "Categoria")]

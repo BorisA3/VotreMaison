@@ -50,7 +50,7 @@ namespace MaisonVotre.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductoId,ProductoNombre,ProductPrecio,Imagen,ProductUltimaVenta,ProductExistencia,ProductoTipo,Productodescripcion,CategoriaId,EmpresaId")] Producto producto)
+        public ActionResult Create([Bind(Include = "ProductoId,ProductoNombre,ProductPrecio,Imagen,ProductUltimaVenta,ProductExistencia,Productodescripcion,CategoriaId,EmpresaId")] Producto producto)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace MaisonVotre.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductoId,ProductoNombre,ProductPrecio,Imagen,ProductUltimaVenta,ProductExistencia,ProductoTipo,Productodescripcion,CategoriaId,EmpresaId")] Producto producto)
+        public ActionResult Edit([Bind(Include = "ProductoId,ProductoNombre,ProductPrecio,Imagen,ProductUltimaVenta,ProductExistencia,Productodescripcion,CategoriaId,EmpresaId")] Producto producto)
         {
             if (ModelState.IsValid)
             {

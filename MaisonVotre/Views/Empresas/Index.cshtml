@@ -41,13 +41,13 @@
             @Html.DisplayFor(modelItem => item.EmpresaNombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EmpresaImagen)
+            <img src="@Url.Content(item.EmpresaImagen)" width="200" height="130" alt="Alternate Text" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EmpresaDescripcion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EmpresaLogo)
+            <img src="@Url.Content(item.EmpresaLogo)" width="200" height="100" alt="Alternate Text" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EmpresaTipo)

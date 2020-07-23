@@ -33,11 +33,23 @@
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                                 <span class="nav-label">
-                                    Opciones
+                                    Administrar
                                 </span>
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
+                                <li role="separator" class="divider"></li>
+                                <li>@Html.ActionLink("Categorias", "Index", "Categorias")</li>
+                                <li role="separator" class="divider"></li>
+                                <li>@Html.ActionLink("Ciudades", "Index", "Ciudads")</li>
+                                <li role="separator" class="divider"></li>
+                                <li>@Html.ActionLink("Clientes", "Index", "Clientes")</li>
+                                <li role="separator" class="divider"></li>
+                                <li>@Html.ActionLink("Empresas", "Index", "Empresas")</li>
+                                <li role="separator" class="divider"></li>
+                                <li>@Html.ActionLink("Pedidos", "Index", "Pedidoes")</li>
+                                <li role="separator" class="divider"></li>
+                                <li>@Html.ActionLink("Productos", "Index", "Productoes")</li>
                                 <li role="separator" class="divider"></li>
                                 <li>@Html.ActionLink("Usuarios", "Index", "ApplicationUsers")</li>
                                 <li role="separator" class="divider"></li>

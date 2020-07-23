@@ -36,9 +36,8 @@ namespace MaisonVotre.Models
         }
 
         [Display(Name = "Sexo")]
-        [DataType(DataType.Date)]
         [Required]
-        public string ClienteSexo { get; set; }
+        public Sexo ClienteSexo { get; set; }
 
         [Display(Name = "Correo")]
         [Required]

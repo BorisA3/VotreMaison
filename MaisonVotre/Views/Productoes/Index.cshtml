@@ -33,9 +33,6 @@
             @Html.DisplayNameFor(model => model.ProductExistencia)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductoTipo)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Productodescripcion)
         </th>
         <th></th>
@@ -56,16 +53,13 @@
             @Html.DisplayFor(modelItem => item.ProductPrecio)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Imagen)
+            <img src="@Url.Content(item.Imagen)" width="200" height="100" alt="Alternate Text" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProductUltimaVenta)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProductExistencia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductoTipo)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Productodescripcion)
