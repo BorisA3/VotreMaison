@@ -10,8 +10,8 @@ namespace MaisonVotre.Models
     public class PedidoDetalle
     {
         [Key]
+        [Display(Name = "Codigo")]
         public int PedidoDetalleId { get; set; }
-
 
         public decimal PedidoDetalleSubTotal { get; set; }
         [Display(Name = "Pedido")]
@@ -19,11 +19,11 @@ namespace MaisonVotre.Models
         public int PedidoId { get; set; }
 
         [ForeignKey("PedidoId")]
-        public Pedido pedidos { get; set; }
+        public Pedido Pedidos { get; set; }
        
         [Display(Name = "Producto")]
         public int ProductoId { get; set; }
         [ForeignKey("ProductoId")]
-        public Producto productos { get; set; }
+        public Producto Productos { get; set; }
     }
 }

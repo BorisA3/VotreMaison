@@ -18,13 +18,13 @@
             @Html.DisplayNameFor(model => model.ClienteTelefono)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ClientIdentificationId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClienteEdad)
+            @Html.DisplayNameFor(model => model.ClienteFchNaci)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ClienteSexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioEmail)
         </th>
         <th></th>
     </tr>
@@ -38,13 +38,13 @@
             @Html.DisplayFor(modelItem => item.ClienteTelefono)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ClientIdentificationId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClienteEdad)
+            @Html.DisplayFor(modelItem => item.ClienteFchNaci)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ClienteSexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioEmail)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ClienteId }) |

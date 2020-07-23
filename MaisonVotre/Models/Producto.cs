@@ -24,6 +24,7 @@ namespace MaisonVotre.Models
         public decimal ProductPrecio { get; set; }
         [Display(Name = "Imagen")]
         [Required]
+        [DataType(DataType.ImageUrl)]
         public string Imagen { get; set; }
        
         [Display(Name = "Ultima Compra")]

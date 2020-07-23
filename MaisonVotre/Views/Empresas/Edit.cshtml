@@ -26,10 +26,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EmpresaImagenes, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EmpresaImagen, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EmpresaImagenes, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EmpresaImagenes, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.EmpresaImagen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmpresaImagen, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -52,7 +52,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EmpresaTipo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EmpresaTipo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EnumDropDownListFor(model => model.EmpresaTipo, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EmpresaTipo, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -18,7 +18,7 @@ namespace MaisonVotre.Controllers
         // GET: Pedidoes
         public ActionResult Index()
         {
-            var pedidoes = db.Pedidoes.Include(p => p.clientes);
+            var pedidoes = db.Pedidoes.Include(p => p.Clientes);
             return View(pedidoes.ToList());
         }
 
@@ -45,11 +45,11 @@ namespace MaisonVotre.Controllers
         }
 
         // POST: Pedidoes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PedidoId,PedidoFecha,ClienteId")] Pedido pedido)
+        public ActionResult Create([Bind(Include = "PedidoId,PedidoFecha,ClienteId,PedidoDireccion")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {
@@ -79,11 +79,11 @@ namespace MaisonVotre.Controllers
         }
 
         // POST: Pedidoes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PedidoId,PedidoFecha,ClienteId")] Pedido pedido)
+        public ActionResult Edit([Bind(Include = "PedidoId,PedidoFecha,ClienteId,PedidoDireccion")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {

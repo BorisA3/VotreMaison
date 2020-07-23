@@ -18,7 +18,7 @@ namespace MaisonVotre.Controllers
         // GET: Empresas
         public ActionResult Index()
         {
-            var empresas = db.Empresas.Include(e => e.ciudades);
+            var empresas = db.Empresas.Include(e => e.Ciudades);
             return View(empresas.ToList());
         }
 
@@ -45,11 +45,11 @@ namespace MaisonVotre.Controllers
         }
 
         // POST: Empresas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmpresaId,EmpresaNombre,EmpresaImagenes,EmpresaDescripcion,EmpresaLogo,EmpresaTipo,CiudadId")] Empresa empresa)
+        public ActionResult Create([Bind(Include = "EmpresaId,EmpresaNombre,EmpresaImagen,EmpresaDescripcion,EmpresaLogo,EmpresaTipo,CiudadId")] Empresa empresa)
         {
             if (ModelState.IsValid)
             {
@@ -79,11 +79,11 @@ namespace MaisonVotre.Controllers
         }
 
         // POST: Empresas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmpresaId,EmpresaNombre,EmpresaImagenes,EmpresaDescripcion,EmpresaLogo,EmpresaTipo,CiudadId")] Empresa empresa)
+        public ActionResult Edit([Bind(Include = "EmpresaId,EmpresaNombre,EmpresaImagen,EmpresaDescripcion,EmpresaLogo,EmpresaTipo,CiudadId")] Empresa empresa)
         {
             if (ModelState.IsValid)
             {

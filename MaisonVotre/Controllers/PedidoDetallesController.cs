@@ -18,7 +18,7 @@ namespace MaisonVotre.Controllers
         // GET: PedidoDetalles
         public ActionResult Index()
         {
-            var pedidoDetalles = db.PedidoDetalles.Include(p => p.pedidos).Include(p => p.productos);
+            var pedidoDetalles = db.PedidoDetalles.Include(p => p.Pedidos).Include(p => p.Productos);
             return View(pedidoDetalles.ToList());
         }
 
@@ -40,13 +40,13 @@ namespace MaisonVotre.Controllers
         // GET: PedidoDetalles/Create
         public ActionResult Create()
         {
-            ViewBag.PedidoId = new SelectList(db.Pedidoes, "PedidoId", "PedidoId");
+            ViewBag.PedidoId = new SelectList(db.Pedidoes, "PedidoId", "PedidoDireccion");
             ViewBag.ProductoId = new SelectList(db.Productoes, "ProductoId", "ProductoNombre");
             return View();
         }
 
         // POST: PedidoDetalles/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -59,7 +59,7 @@ namespace MaisonVotre.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PedidoId = new SelectList(db.Pedidoes, "PedidoId", "PedidoId", pedidoDetalle.PedidoId);
+            ViewBag.PedidoId = new SelectList(db.Pedidoes, "PedidoId", "PedidoDireccion", pedidoDetalle.PedidoId);
             ViewBag.ProductoId = new SelectList(db.Productoes, "ProductoId", "ProductoNombre", pedidoDetalle.ProductoId);
             return View(pedidoDetalle);
         }
@@ -76,13 +76,13 @@ namespace MaisonVotre.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PedidoId = new SelectList(db.Pedidoes, "PedidoId", "PedidoId", pedidoDetalle.PedidoId);
+            ViewBag.PedidoId = new SelectList(db.Pedidoes, "PedidoId", "PedidoDireccion", pedidoDetalle.PedidoId);
             ViewBag.ProductoId = new SelectList(db.Productoes, "ProductoId", "ProductoNombre", pedidoDetalle.ProductoId);
             return View(pedidoDetalle);
         }
 
         // POST: PedidoDetalles/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -94,7 +94,7 @@ namespace MaisonVotre.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PedidoId = new SelectList(db.Pedidoes, "PedidoId", "PedidoId", pedidoDetalle.PedidoId);
+            ViewBag.PedidoId = new SelectList(db.Pedidoes, "PedidoId", "PedidoDireccion", pedidoDetalle.PedidoId);
             ViewBag.ProductoId = new SelectList(db.Productoes, "ProductoId", "ProductoNombre", pedidoDetalle.ProductoId);
             return View(pedidoDetalle);
         }
