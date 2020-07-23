@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -18,14 +18,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="../Home"><img src="../img/logo1.fw.png" width="100px" height="70px" alt="imgf" /></a>
-               
+                <a href="../Home"><img src="https://media.giphy.com/media/TKAMHlF0K7ctBQBjim/giphy.gif" width="100px" height="70px" alt="imgf" /></a>
+                <a href="../Home/Index"><img src="https://media.giphy.com/media/SAB4fwvn9uRWEcilVv/giphy.gif" width="100px" height="70px" alt="imgf" /></a>
+                <a href="../Home/About"><img src="https://media.giphy.com/media/idpsuNXi84tKepREPG/giphy.gif" width="100px" height="70px" alt="imgf" /></a>
+                <a href="../Home/Contact"><img src="https://media.giphy.com/media/ZcLN9sQKOblKu0MXZb/giphy.gif" width="100px" height="70px" alt="imgf" /></a>
             </div>
             <br />
             
             <div class="navbar-collapse collapse ">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    
+                    @*<li>@Html.ActionLink("Inicio", "Index", "Home")</li>*@
 
                     @* INICIO DE MOSTRAR BOTON DE OPCIONES SI EL USUARIO TIENE EL ROL DE ADMIN *@
                     @if (User.IsInRole("admin"))
@@ -33,23 +36,11 @@
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                                 <span class="nav-label">
-                                    Administrar
+                                    Opciones
                                 </span>
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li role="separator" class="divider"></li>
-                                <li>@Html.ActionLink("Categorias", "Index", "Categorias")</li>
-                                <li role="separator" class="divider"></li>
-                                <li>@Html.ActionLink("Ciudades", "Index", "Ciudads")</li>
-                                <li role="separator" class="divider"></li>
-                                <li>@Html.ActionLink("Clientes", "Index", "Clientes")</li>
-                                <li role="separator" class="divider"></li>
-                                <li>@Html.ActionLink("Empresas", "Index", "Empresas")</li>
-                                <li role="separator" class="divider"></li>
-                                <li>@Html.ActionLink("Pedidos", "Index", "Pedidoes")</li>
-                                <li role="separator" class="divider"></li>
-                                <li>@Html.ActionLink("Productos", "Index", "Productoes")</li>
                                 <li role="separator" class="divider"></li>
                                 <li>@Html.ActionLink("Usuarios", "Index", "ApplicationUsers")</li>
                                 <li role="separator" class="divider"></li>
@@ -59,8 +50,8 @@
                     @* INICIO DE MOSTRAR BOTON DE OPCIONES SI EL USUARIO TIENE EL ROL DE ADMIN *@
 
 
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    @*<li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
