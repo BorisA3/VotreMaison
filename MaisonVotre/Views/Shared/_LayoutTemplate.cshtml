@@ -10,8 +10,8 @@
     <title>Helios by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="~/Content/TemplateCustom/styles.css" />
+    <noscript><link rel="stylesheet" href="~/Content/TemplateCustom/noscript.css" /></noscript>
     @Styles.Render("~/Content/xcss")
 
 </head>
@@ -37,28 +37,34 @@
             <nav id="nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li>
-                        <a href="#">Dropdown</a>
-                        <ul>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Magna phasellus</a></li>
-                            <li><a href="#">Etiam dolore nisl</a></li>
-                            <li>
-                                <a href="#">And a submenu &hellip;</a>
-                                <ul>
-                                    <li><a href="#">Lorem ipsum dolor</a></li>
-                                    <li><a href="#">Phasellus consequat</a></li>
-                                    <li><a href="#">Magna phasellus</a></li>
-                                    <li><a href="#">Etiam dolore nisl</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Veroeros feugiat</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="~/Views/Clientes/Index.cshtml">Left Sidebar</a></li>
+                    @* INICIO DE MOSTRAR BOTON DE OPCIONES SI EL USUARIO TIENE EL ROL DE ADMIN *@
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li>
+                            <a href="#">Opciones</a>
+                            <ul>
+                                <li><a href="#">Lorem ipsum dolor</a></li>
+                                <li><a href="#">Magna phasellus</a></li>
+                                <li><a href="#">Etiam dolore nisl</a></li>
+                                <li>
+                                    <a href="#">And a submenu &hellip;</a>
+                                    <ul>
+                                        <li><a href="#">Lorem ipsum dolor</a></li>
+                                        <li><a href="#">Phasellus consequat</a></li>
+                                        <li><a href="#">Magna phasellus</a></li>
+                                        <li><a href="#">Etiam dolore nisl</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Veroeros feugiat</a></li>
+                            </ul>
+                        </li>
+                    }
+                    @* INICIO DE MOSTRAR BOTON DE OPCIONES SI EL USUARIO TIENE EL ROL DE ADMIN *@
+                    <li>@Html.ActionLink("Clientes", "Index", "Clientes")</li>
                     <li><a href="right-sidebar.html">Right Sidebar</a></li>
                     <li><a href="no-sidebar.html">No Sidebar</a></li>
                 </ul>
+                @Html.Partial("_LoginPartial")
             </nav>
 
         </div>
@@ -378,15 +384,25 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    @*<script src="~/Scripts/Customjs/breakpoints.min.js"></script>
+        <script src="~/Scripts/Customjs/jquery.dropotron.min.js"></script>
+        <script src="~/Scripts/Customjs/browser.min.js"></script>
+        <script src="~/Scripts/Customjs/jquery.min.js"></script>
+        <script src="~/Scripts/Customjs/jquery.scrollex.min.js"></script>
+        <script src="~/Scripts/Customjs/jquery.scrolly.min.js"></script>
+        <script src="~/Scripts/Customjs/main.js"></script>
+        <script src="~/Scripts/Customjs/util.js"></script>*@
 
+    @Scripts.Render("~/bundles/template")
+    @Scripts.Render("~/bundles/template2")
+    @Scripts.Render("~/bundles/template3")
+    @Scripts.Render("~/bundles/template4")
+    @Scripts.Render("~/bundles/template5")
+    @Scripts.Render("~/bundles/template6")
+    @Scripts.Render("~/bundles/template7")
+    @Scripts.Render("~/bundles/template8")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
 </body>
 </html>
 @RenderBody()
