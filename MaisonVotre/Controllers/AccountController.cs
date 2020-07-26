@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MaisonVotre.Models;
+using MaisonVotre.Data;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace MaisonVotre.Controllers
 {
@@ -17,6 +19,9 @@ namespace MaisonVotre.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+
+        MaisonVotreContext db = new MaisonVotreContext();
+        ApplicationDbContext dbAsp = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -73,8 +78,6 @@ namespace MaisonVotre.Controllers
                 return View(model);
             }
 
-            // No cuenta los errores de inicio de sesión para el bloqueo de la cuenta
-            // Para permitir que los errores de contraseña desencadenen el bloqueo de la cuenta, cambie a shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
@@ -147,28 +150,44 @@ namespace MaisonVotre.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterClientViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Name, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(dbAsp));
+
                 if (result.Succeeded)
                 {
+
+                    if (!userManager.IsInRole(user.Id, "cliente"))
+                    {
+                        userManager.AddToRole(
+                            user.Id,
+                            "cliente"
+                        );
+                    }
+
+                    var cliente = new Cliente
+                    {
+                        ClienteNombre = model.DName,
+                        UsuarioEmail = model.Email,
+                        ClienteTelefono = model.Phone,
+                        ClienteSexo = model.Gender.ToString(),
+                        ClienteFchNaci = model.BirthDate
+                    };
+
+                    db.Clientes.Add(cliente);
+                    db.SaveChanges();
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
-                    // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Enviar correo electrónico con este vínculo
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
-
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
-
-            // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             return View(model);
         }
 
@@ -208,12 +227,6 @@ namespace MaisonVotre.Controllers
                     // No revelar que el usuario no existe o que no está confirmado
                     return View("ForgotPasswordConfirmation");
                 }
-
-                // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
-                // Enviar correo electrónico con este vínculo
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Restablecer contraseña", "Para restablecer la contraseña, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
                 // return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 

@@ -29,24 +29,13 @@ namespace MaisonVotre.Models
         [Required]
         public DateTime ClienteFchNaci { get; set; }
 
-        public enum Sexo
-        {
-            Mujer,
-            Hombre
-        }
-
         [Display(Name = "Sexo")]
         [Required]
-        public Sexo ClienteSexo { get; set; }
+        public string ClienteSexo { get; set; }
 
         [Display(Name = "Correo")]
         [Required]
         public string UsuarioEmail { get; set; }
-
-        //[ForeignKey("Id")]
-        //public ApplicationUser User { get; set; }
-
-        public virtual ICollection<Pedido> Pedidos { get; set; }
 
     }
 
