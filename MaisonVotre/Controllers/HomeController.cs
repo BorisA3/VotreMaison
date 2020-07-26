@@ -26,5 +26,9 @@ namespace MaisonVotre.Controllers
 
             return View();
         }
+        public ActionResult Afiliado()
+        {
+            return View();
+        }
     }
 }
