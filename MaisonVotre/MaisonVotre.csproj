@@ -225,6 +225,7 @@
     <Content Include="img\3.jpg" />
     <Content Include="img\equipo.png" />
     <Content Include="img\fondo.fw.png" />
+    <Content Include="img\Logo Circulo.fw.png" />
     <Content Include="img\Logo1.fw.png" />
     <Content Include="img\ordenar.png" />
     <Content Include="img\pago.png" />
@@ -321,7 +322,6 @@
     <Content Include="Views\Productoes\Edit.cshtml" />
     <Content Include="Views\Productoes\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Shared\_LayoutTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

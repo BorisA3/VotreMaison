@@ -4,13 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top " >
+    <div class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container  bg-white">
             <div class="navbar-header ">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -18,33 +18,34 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="../Home"><img src="../img/logo1.fw.png" width="100px" height="70px" alt="imgf" /></a>
-               
+                <a href="../Home"><img src="https://media.giphy.com/media/TKAMHlF0K7ctBQBjim/giphy.gif" width="100px" height="70px" alt="imgf" /></a>
             </div>
             <br />
-            
+
             <div class="navbar-collapse collapse ">
                 <ul class="nav navbar-nav">
+
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
 
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                            <span class="nav-label">
-                                Opciones
-                            </span>
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-
-                            @if (User.IsInRole("admin"))
-                            {
+                    @* INICIO DE MOSTRAR BOTON DE OPCIONES SI EL USUARIO TIENE EL ROL DE ADMIN *@
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                                <span class="nav-label">
+                                    Opciones
+                                </span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
                                 <li role="separator" class="divider"></li>
                                 <li>@Html.ActionLink("Usuarios", "Index", "ApplicationUsers")</li>
                                 <li role="separator" class="divider"></li>
-                            }
+                            </ul>
+                        </li>
+                    }
+                    @* INICIO DE MOSTRAR BOTON DE OPCIONES SI EL USUARIO TIENE EL ROL DE ADMIN *@
 
-                        </ul>
-                    </li>
 
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
@@ -71,3 +72,41 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    body {
+        background-image: url(../../img/fondo.fw.png);
+        background-size: cover;
+    }
+
+    .navbar{
+        background-color: #000000;
+    }
+</style>
+

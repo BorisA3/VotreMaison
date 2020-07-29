@@ -1,0 +1,58 @@
+﻿@model MaisonVotre.Models.Cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteTelefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteTelefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteFchNaci)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteFchNaci)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteSexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteSexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioEmail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClienteId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

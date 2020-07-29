@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MaisonVotre.Models.Empresa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ciudades.CiudadNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpresaNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpresaImagen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpresaDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpresaLogo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpresaTipo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ciudades.CiudadNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpresaNombre)
+        </td>
+        <td>
+            <img src="@Url.Content(item.EmpresaImagen)" width="200" height="130" alt="Alternate Text" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpresaDescripcion)
+        </td>
+        <td>
+            <img src="@Url.Content(item.EmpresaLogo)" width="200" height="100" alt="Alternate Text" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpresaTipo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmpresaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmpresaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmpresaId })
+        </td>
+    </tr>
+}
+
+</table>
