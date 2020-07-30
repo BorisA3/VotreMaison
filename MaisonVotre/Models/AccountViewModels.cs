@@ -94,6 +94,7 @@ namespace MaisonVotre.Models
     public class RegisterClientViewModel
     {
         [Required]
+        [RegularExpression("^[a-zA-Z0-9_]*$", ErrorMessage ="En el nombre de usuario solo se permiten minusculas, mayusculas, numeros y guiones bajos.")]
         [Display(Name = "Nombre de Usuario")]
         public string Name { get; set; }
 
