@@ -21,7 +21,6 @@ namespace P_Market.Controllers
         private ApplicationUserManager _userManager;
 
         ApplicationDbContext db = new ApplicationDbContext();
-        MaisonVotre.Data.MaisonVotreContext dbVM = new MaisonVotre.Data.MaisonVotreContext();
 
         // GET: ApplicationUsers
         public ActionResult Index(ApplicationDbContext db)
@@ -248,17 +247,6 @@ namespace P_Market.Controllers
             ApplicationUser applicationUser = db.Users.Find(id);
             db.Users.Remove(applicationUser);
             db.SaveChanges();
-
-            var clientes = dbVM.Clientes.Where(e => e.UsuarioEmail == applicationUser.Email);
-            var cli = clientes.FirstOrDefault();
-
-            if (cli != null)
-            {
-                Cliente cliente = dbVM.Clientes.Find(id);
-                dbVM.Clientes.Remove(cliente);
-                dbVM.SaveChanges();
-            }
-
             return RedirectToAction("Index");
         }
 
