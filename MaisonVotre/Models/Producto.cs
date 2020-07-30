@@ -53,9 +53,5 @@ namespace MaisonVotre.Models
 
         public virtual ICollection<PedidoDetalle> PedidoDetalles { get; set; }
 
-
-
-
-
     }
 }

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MaisonVotre.Data;
 using MaisonVotre.Models;
+using MaisonVotre.Models.Carrito;
 
 namespace MaisonVotre.Controllers
 {
@@ -15,11 +16,84 @@ namespace MaisonVotre.Controllers
     {
         private MaisonVotreContext db = new MaisonVotreContext();
 
+        
+
         // GET: Productoes
         public ActionResult Index()
         {
             var productoes = db.Productoes.Include(p => p.Categorias).Include(p => p.Empresas);
             return View(productoes.ToList());
+        }
+
+        public ActionResult Carrito()
+        {
+            if (Session["cart"] != null)
+            {
+                return View(Session["cart"]);
+            }
+            else
+            {
+                List<Carrito> cart = new List<Carrito>();
+                return View(cart);
+            }
+        }
+
+        public ActionResult AddtoCart(int id)
+        {
+            if (Session["cart"] == null)
+            {
+                List<Carrito> cart = new List<Carrito>();
+                cart.Add(new Carrito { Producto = db.Productoes.Find(id), Cantidad = 1 });
+                Session["cart"] = cart;
+            }
+            else
+            {
+                List<Carrito> cart = (List<Carrito>)Session["cart"];
+                int index = isExist(id);
+                if (index != -1)
+                {
+                    cart[index].Cantidad++;
+                }
+                else
+                {
+                    cart.Add(new Carrito { Producto = db.Productoes.Find(id), Cantidad = 1 });
+                }
+                Session["cart"] = cart;
+            }
+            return View("Carrito", Session["cart"]);
+        }
+
+        public ActionResult RemovefromCart(int id)
+        {
+            List<Carrito> cart = (List<Carrito>)Session["cart"];
+            int index = isExist(id);
+            cart.RemoveAt(index);
+            Session["cart"] = cart;
+            return RedirectToAction("Carrito");
+        }
+
+        public ActionResult DownQuantity(int id)
+        {
+            List<Carrito> cart = (List<Carrito>)Session["cart"];
+            foreach (var item in cart)
+            {
+                if (item.Producto.ProductoId == id && item.Cantidad > 1)
+                {
+                    item.Cantidad--;
+                }
+            }
+
+            Session["cart"] = cart;
+            return RedirectToAction("Carrito");
+        }
+
+        private int isExist(int id)
+        {
+            List<Carrito> cart = (List<Carrito>)Session["cart"];
+            for (int i = 0; i < cart.Count; i++)
+                if (cart[i].Producto.ProductoId.Equals(id))
+                    return i;
+            return -1;
         }
 
         // GET: Productoes/Details/5

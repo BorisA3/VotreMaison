@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table  class="table table-hover table-bordered">
+<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Categorias.CategoriaNombre)
@@ -65,9 +65,10 @@
             @Html.DisplayFor(modelItem => item.Productodescripcion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductoId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProductoId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ProductoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductoId }) |
+            @Html.ActionLink("Añadir al Carrito", "AddtoCart", new { id = item.ProductoId })
         </td>
     </tr>
 }
