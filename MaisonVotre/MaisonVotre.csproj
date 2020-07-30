@@ -224,6 +224,7 @@
     <Content Include="img\1.jpg" />
     <Content Include="img\2.jpg" />
     <Content Include="img\3.jpg" />
+    <Content Include="img\carrito-de-compras.png" />
     <Content Include="img\comercios.jpg" />
     <Content Include="img\equipo.png" />
     <Content Include="img\grafica.png" />
