@@ -30,5 +30,10 @@ namespace MaisonVotre.Controllers
         {
             return View();
         }
+
+        public ActionResult Requisitos()
+        {
+            return View();
+        }
     }
 }

@@ -223,12 +223,17 @@
     <Content Include="img\1.jpg" />
     <Content Include="img\2.jpg" />
     <Content Include="img\3.jpg" />
+    <Content Include="img\comercios.jpg" />
     <Content Include="img\equipo.png" />
+    <Content Include="img\grafica.png" />
     <Content Include="img\fondo.fw.png" />
     <Content Include="img\Logo Circulo.fw.png" />
     <Content Include="img\Logo1.fw.png" />
+    <Content Include="img\moneda.png" />
     <Content Include="img\ordenar.png" />
     <Content Include="img\pago.png" />
+    <Content Include="img\ubicacion.png" />
+    <Content Include="img\ConoceClientes.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\MaisonVotre - Web Deploy.pubxml" />
@@ -322,6 +327,7 @@
     <Content Include="Views\Productoes\Edit.cshtml" />
     <Content Include="Views\Productoes\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Requisitos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
