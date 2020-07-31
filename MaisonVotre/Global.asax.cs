@@ -46,6 +46,7 @@ namespace MaisonVotre
             {
                 roleManager.Create(new IdentityRole("admin"));
             }
+
         }
 
         private void CreateUsers(ApplicationDbContext db)

@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <hr class="table-bordered"/>
     <title>Floating Div Product Grid Demo</title>
     <style>
       /* Float container */
@@ -78,28 +79,33 @@
     </style>
 </head>
 <body>
+    <h4>
+        <b>ELIJE DE DONDE QUIERES HACER TU PEDIDO</b>
+    </h4>
+    <img src="https://media0.giphy.com/media/KzQzXxdJpdSFY9TD9C/giphy.gif" width="100px" height="70px" alt="imgf" />
+    <hr class="table-bordered" />
     <div class="row">
         <div class="col-md-2" s>
             <button class="p-add" onclick="">Ir</button>
         </div>
 
-            <div id="p-float">
-                @foreach (var item in Model)
-                {
-                    <div class="p-float">
+        <div id="p-float">
+            @foreach (var item in Model)
+            {
+                <div class="p-float">
 
-                        <div class="p-float-in">
-                            <div class="p-name">@Html.DisplayFor(modelItem => item.EmpresaNombre)</div><br />
-                            <img class="p-img" src="@Url.Content(item.EmpresaImagen)" />
-                            <div class="p-price"><br /></div>
-                            <div class="p-desc">@Html.DisplayFor(modelItem => item.EmpresaDescripcion)</div>
-                            <a href="../Productoes/Index"><button class="p-add">Ir</button></a>
-                        </div>
-
-
+                    <div class="p-float-in">
+                        <div class="p-name">@Html.DisplayFor(modelItem => item.EmpresaNombre)</div><br />
+                        <img class="p-img" src="@Url.Content(item.EmpresaImagen)" />
+                        <div class="p-price"><br /></div>
+                        <div class="p-desc">@Html.DisplayFor(modelItem => item.EmpresaDescripcion)</div>
+                        <a href="../Productoes/Index"><button class="p-add">Realiza tu pedido</button></a>
                     </div>
-                }
-            </div>
+
+
+                </div>
+            }
+        </div>
     </div>
 </body>
 </html>
