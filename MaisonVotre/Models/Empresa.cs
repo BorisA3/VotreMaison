@@ -52,7 +52,11 @@ namespace MaisonVotre.Models
         [ForeignKey("CiudadId")]
         public Ciudad Ciudades { get; set; }
 
+        [Display(Name = "Categoria")]
+        public int CategoriaId { get; set; }
 
+        [ForeignKey("CategoriaId")]
+        public Categoria Categorias { get; set; }
 
     }
 }

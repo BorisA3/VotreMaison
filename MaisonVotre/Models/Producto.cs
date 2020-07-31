@@ -39,11 +39,6 @@ namespace MaisonVotre.Models
         [Display(Name = "Producto Descripcion")]
         [Required]
         public string Productodescripcion { get; set; }
-        [Display(Name = "Categoria")]
-        public int CategoriaId { get; set; }
-
-        [ForeignKey("CategoriaId")]
-        public Categoria Categorias { get; set; }
 
         [Display(Name = "Empresa")]
         public int EmpresaId { get; set; }

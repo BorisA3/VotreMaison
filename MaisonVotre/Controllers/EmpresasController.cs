@@ -18,7 +18,7 @@ namespace MaisonVotre.Controllers
         // GET: Empresas
         public ActionResult Index()
         {
-            var empresas = db.Empresas.Include(e => e.Ciudades);
+            var empresas = db.Empresas.Include(e => e.Categorias).Include(e => e.Ciudades);
             return View(empresas.ToList());
         }
 
@@ -40,6 +40,7 @@ namespace MaisonVotre.Controllers
         // GET: Empresas/Create
         public ActionResult Create()
         {
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "CategoriaNombre");
             ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "CiudadNombre");
             return View();
         }
@@ -49,7 +50,7 @@ namespace MaisonVotre.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmpresaId,EmpresaNombre,EmpresaImagen,EmpresaDescripcion,EmpresaLogo,EmpresaTipo,CiudadId")] Empresa empresa)
+        public ActionResult Create([Bind(Include = "EmpresaId,EmpresaNombre,EmpresaImagen,EmpresaDescripcion,EmpresaLogo,EmpresaTipo,CiudadId,CategoriaId")] Empresa empresa)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +59,7 @@ namespace MaisonVotre.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "CategoriaNombre", empresa.CategoriaId);
             ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "CiudadNombre", empresa.CiudadId);
             return View(empresa);
         }
@@ -74,6 +76,7 @@ namespace MaisonVotre.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "CategoriaNombre", empresa.CategoriaId);
             ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "CiudadNombre", empresa.CiudadId);
             return View(empresa);
         }
@@ -83,7 +86,7 @@ namespace MaisonVotre.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmpresaId,EmpresaNombre,EmpresaImagen,EmpresaDescripcion,EmpresaLogo,EmpresaTipo,CiudadId")] Empresa empresa)
+        public ActionResult Edit([Bind(Include = "EmpresaId,EmpresaNombre,EmpresaImagen,EmpresaDescripcion,EmpresaLogo,EmpresaTipo,CiudadId,CategoriaId")] Empresa empresa)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +94,7 @@ namespace MaisonVotre.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "CategoriaNombre", empresa.CategoriaId);
             ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "CiudadNombre", empresa.CiudadId);
             return View(empresa);
         }
@@ -134,11 +138,6 @@ namespace MaisonVotre.Controllers
         {
             var empresas = db.Empresas.Include(e => e.Ciudades);
             return View(empresas.ToList());
-        }
-
-        public ActionResult view_empresas()
-        {
-            return View();
         }
 
     }

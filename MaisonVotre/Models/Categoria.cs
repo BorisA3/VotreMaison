@@ -18,7 +18,7 @@ namespace MaisonVotre.Models
         [MinLength(2, ErrorMessage = "El minimo es de 2")]
         public string CategoriaNombre { get; set; }
 
-        public virtual ICollection<Producto> Productos { get; set; }
+        public virtual ICollection<Empresa> Empresas { get; set; }
 
 
     }

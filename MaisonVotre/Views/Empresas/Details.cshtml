@@ -11,6 +11,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Categorias.CategoriaNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categorias.CategoriaNombre)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Ciudades.CiudadNombre)
         </dt>
 
@@ -31,7 +39,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EmpresaImagen)
+            <img src="@Url.Content(item.EmpresaImagen)" width="200" height="130" alt="Alternate Text" />
         </dd>
 
         <dt>
@@ -47,7 +55,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EmpresaLogo)
+            <img src="@Url.Content(item.EmpresaLogo)" width="200" height="100" alt="Alternate Text" />
         </dd>
 
         <dt>
