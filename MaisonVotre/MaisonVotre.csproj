@@ -204,6 +204,7 @@
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Ciudad.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\Empresa.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -227,6 +228,7 @@
     <Content Include="img\1.jpg" />
     <Content Include="img\2.jpg" />
     <Content Include="img\3.jpg" />
+    <Content Include="img\afiliatee.jpeg" />
     <Content Include="img\carrito-de-compras.png" />
     <Content Include="img\carro.png" />
     <Content Include="img\comercios.jpg" />
@@ -337,9 +339,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Requisitos.cshtml" />
     <Content Include="Views\Productoes\Carrito.cshtml" />
+    <Content Include="Views\Home\ContactoComercio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ContactModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
