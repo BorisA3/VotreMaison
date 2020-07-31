@@ -25,9 +25,9 @@ namespace MaisonVotre.Controllers
             return View(productoes.ToList());
         }
 
-        public ActionResult Pago()
+        public ActionResult Pay(decimal total)
         {
-            
+            ViewBag.total = total;
             return View();
         }
 

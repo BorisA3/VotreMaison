@@ -129,5 +129,17 @@ namespace MaisonVotre.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult ViewEmpresas()
+        {
+            var empresas = db.Empresas.Include(e => e.Ciudades);
+            return View(empresas.ToList());
+        }
+
+        public ActionResult view_empresas()
+        {
+            return View();
+        }
+
     }
 }

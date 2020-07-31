@@ -1,0 +1,95 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!-- template from http://getbootstrap.com/getting-started -->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Google Maps example</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <style type="text/css">
+
+        #map_canvas {
+            height: 400px;
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+
+        var x = document.getElementById("demo");
+        $(document).ready(function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+                DisplayMap();
+            }
+            else { x.innerHTML = "Geolocation is not supported by this browser."; }
+        })
+        function showPosition(position) {
+            var latlon = "Your Latitude Position is:=" + position.coords.latitude + "," + "Your Longitude Position is:=" + position.coords.longitude;
+            alert(latlon)
+
+            // map options
+            var options = {
+                zoom: 15,
+                center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+                mapTypeId: google.maps.MapTypeId.TERRAIN,
+                mapTypeControl: true
+            };
+
+            // init map
+            var map = new google.maps.Map(document.getElementById('map_canvas'), options);
+
+                // init markers
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+                    map: map,
+                    title: "Your Location"
+                });
+
+                // process multiple info windows
+                (function(marker, i) {
+                    // add click event
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow = new google.maps.InfoWindow({
+                            content: "Your Location"
+                        });
+                        infowindow.open(map, marker);
+                    });
+                })(marker, i);
+
+        }
+        function showError(error) {
+            if (error.code == 1) {
+                x.innerHTML = "User denied the request for Geolocation."
+            }
+            else if (err.code == 2) {
+                x.innerHTML = "Location information is unavailable."
+            }
+            else if (err.code == 3) {
+                x.innerHTML = "The request to get user location timed out."
+            }
+            else {
+                x.innerHTML = "An unknown error occurred."
+            }
+        }
+
+    </script>
+
+
+    <div id="map_canvas"></div>
+</body>
+</html>
