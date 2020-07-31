@@ -404,3 +404,5 @@ C:\Users\rodri\Documents\GitHub\VotreMaison\MaisonVotre\obj\Debug\MaisonVotre.cs
 C:\Users\rodri\Documents\GitHub\VotreMaison\MaisonVotre\obj\Debug\MaisonVotre.csproj.CopyComplete
 C:\Users\rodri\Documents\GitHub\VotreMaison\MaisonVotre\obj\Debug\MaisonVotre.dll
 C:\Users\rodri\Documents\GitHub\VotreMaison\MaisonVotre\obj\Debug\MaisonVotre.pdb
+C:\Users\Boris\source\repos\MaisonVotre\MaisonVotre\bin\PayPal.dll
+C:\Users\Boris\source\repos\MaisonVotre\MaisonVotre\bin\PayPal.xml

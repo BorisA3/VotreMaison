@@ -25,6 +25,12 @@ namespace MaisonVotre.Controllers
             return View(productoes.ToList());
         }
 
+        public ActionResult Pago()
+        {
+            
+            return View();
+        }
+
         public ActionResult Carrito()
         {
             if (Session["cart"] != null)

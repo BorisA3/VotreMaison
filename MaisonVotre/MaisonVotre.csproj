@@ -46,6 +46,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -225,7 +228,10 @@
     <Content Include="img\2.jpg" />
     <Content Include="img\3.jpg" />
     <Content Include="img\carrito-de-compras.png" />
+    <Content Include="img\carro.png" />
     <Content Include="img\comercios.jpg" />
+    <Content Include="img\dinero %281%29.png" />
+    <Content Include="img\empleado.png" />
     <Content Include="img\equipo.png" />
     <Content Include="img\grafica.png" />
     <Content Include="img\fondo.fw.png" />
@@ -330,6 +336,7 @@
     <Content Include="Views\Productoes\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Requisitos.cshtml" />
+    <Content Include="Views\Productoes\Carrito.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
