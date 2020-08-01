@@ -7,14 +7,17 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 using MaisonVotre.Models;
 using System;
+using MaisonVotre.Data;
 
 namespace MaisonVotre.Controllers
 {
     public class HomeController : Controller
     {
+        MaisonVotreContext db = new MaisonVotreContext();
         public ActionResult Index()
         {
-            return View();
+
+            return View(db.Empresas.ToList());
         }
 
         public ActionResult About()

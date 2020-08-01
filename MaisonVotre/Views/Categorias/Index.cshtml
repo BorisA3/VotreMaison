@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<MaisonVotre.Models.Categoria>
 
 @{
+    ViewBag.Title = ("Categorias");
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,13 +10,19 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <br />
+  
     <title>Index</title>
+    <h4>
+        Categorias
+    </h4>
+    
 </head>
 <body>
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
+    <table class="table table-bordered table-hover">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.CategoriaNombre)

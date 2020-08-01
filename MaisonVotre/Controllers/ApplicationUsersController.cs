@@ -118,6 +118,7 @@ namespace P_Market.Controllers
         }
 
         //GET
+        [Authorize(Roles = "admin")]
         public ActionResult AggRole(string usrname)
         {
             User_Role UserRol = new User_Role();
@@ -154,6 +155,7 @@ namespace P_Market.Controllers
 
 
         // GET: ApplicationUsers/Details/5
+        [Authorize(Roles = "admin")]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -169,6 +171,7 @@ namespace P_Market.Controllers
         }
 
         // GET: ApplicationUsers/Create
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View();
@@ -192,6 +195,7 @@ namespace P_Market.Controllers
         }
 
         // GET: ApplicationUsers/Edit/5
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -223,6 +227,7 @@ namespace P_Market.Controllers
         }
 
         // GET: ApplicationUsers/Delete/5
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(string id)
         {
             if (id == null)

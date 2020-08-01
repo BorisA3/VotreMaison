@@ -1,5 +1,6 @@
 ﻿@model MaisonVotre.Models.ContactModel
 @{
+    ViewBag.Title = "Comercio";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html>
@@ -12,14 +13,15 @@
     <title>Contact</title>
 </head>
 <body>
-    @using (Html.BeginForm())
-    {
+  @using (Html.BeginForm())
+   {
         @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+      <div class="form-horizontal">
+
         <h3>Informacion de contacto</h3>
         <br />
-        <P class="text-left"><font face="Arial" size=4 color="#FF9300"><b>C</b> </font>Escribenos tu correo, y redacta el por que quieres ser parte de nosotros.<br />Te contactaremos lo mas pronto posible.</P>
+        <P class="text-left"><font face="Time new romance" size=4 color="#FF9300" class="text-center" ><b> </font>Escribenos tu correo, y redacta el por que quieres ser parte de nosotros.Te contactaremos lo mas pronto posible.</P>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -43,8 +45,13 @@
                 <input type="submit" value="Enviar" class="btn btn-default" />
             </div>
         </div>
-    </div>
-    }
+       
+            <img src="https://kinsta.com/es/wp-content/uploads/sites/8/2018/10/sistema-de-afiliados.gif" width="600" height="300" alt="imgf" />
+      
+        
+     </div>
+
+   }
 
     <div>
         @Html.ActionLink("Back to List", "Index")

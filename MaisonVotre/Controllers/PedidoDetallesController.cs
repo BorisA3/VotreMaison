@@ -38,6 +38,7 @@ namespace MaisonVotre.Controllers
         }
 
         // GET: PedidoDetalles/Create
+        [Authorize(Roles = "Create")]
         public ActionResult Create()
         {
             ViewBag.PedidoId = new SelectList(db.Pedidoes, "PedidoId", "PedidoDireccion");
@@ -65,6 +66,7 @@ namespace MaisonVotre.Controllers
         }
 
         // GET: PedidoDetalles/Edit/5
+        [Authorize(Roles = "Edit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -100,6 +102,7 @@ namespace MaisonVotre.Controllers
         }
 
         // GET: PedidoDetalles/Delete/5
+        [Authorize(Roles = "Delete")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

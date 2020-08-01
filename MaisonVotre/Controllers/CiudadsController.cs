@@ -37,6 +37,7 @@ namespace MaisonVotre.Controllers
         }
 
         // GET: Ciudads/Create
+        [Authorize(Roles = "Create")]
         public ActionResult Create()
         {
             return View();
@@ -60,6 +61,7 @@ namespace MaisonVotre.Controllers
         }
 
         // GET: Ciudads/Edit/5
+        [Authorize(Roles = "Edit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +93,7 @@ namespace MaisonVotre.Controllers
         }
 
         // GET: Ciudads/Delete/5
+        [Authorize(Roles = "Delete")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

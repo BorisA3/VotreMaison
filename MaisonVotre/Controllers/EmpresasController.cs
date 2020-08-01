@@ -38,6 +38,7 @@ namespace MaisonVotre.Controllers
         }
 
         // GET: Empresas/Create
+        [Authorize(Roles = "Create")]
         public ActionResult Create()
         {
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "CategoriaNombre");
@@ -65,6 +66,7 @@ namespace MaisonVotre.Controllers
         }
 
         // GET: Empresas/Edit/5
+        [Authorize(Roles = "Edit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -100,6 +102,7 @@ namespace MaisonVotre.Controllers
         }
 
         // GET: Empresas/Delete/5
+        [Authorize(Roles = "Delete")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

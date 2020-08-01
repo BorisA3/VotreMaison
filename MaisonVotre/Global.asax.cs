@@ -46,6 +46,18 @@ namespace MaisonVotre
             {
                 roleManager.Create(new IdentityRole("admin"));
             }
+            if (!roleManager.RoleExists("Edit"))
+            {
+                roleManager.Create(new IdentityRole("Edit"));
+            }
+            if (!roleManager.RoleExists("Delete"))
+            {
+                roleManager.Create(new IdentityRole("Delete"));
+            }
+            if (!roleManager.RoleExists("Create"))
+            {
+                roleManager.Create(new IdentityRole("Create"));
+            }
 
         }
 
@@ -80,7 +92,27 @@ namespace MaisonVotre
                     "admin"
                 );
             }
-
+            if (!userManager.IsInRole(user.Id, "Edit"))
+            {
+                userManager.AddToRole(
+                    user.Id,
+                    "Edit"
+                );
+            }
+            if (!userManager.IsInRole(user.Id, "Delete"))
+            {
+                userManager.AddToRole(
+                    user.Id,
+                    "Delete"
+                );
+            }
+            if (!userManager.IsInRole(user.Id, "Create"))
+            {
+                userManager.AddToRole(
+                    user.Id,
+                    "Create"
+                );
+            }
         }
 
     }
