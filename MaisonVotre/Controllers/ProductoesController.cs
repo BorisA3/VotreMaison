@@ -131,10 +131,17 @@ namespace MaisonVotre.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult Pay(decimal total)
+        public ActionResult Pay()
         {
-            ViewBag.total = total;
-            return View();
+            if (Session["cart"] != null)
+            {
+                return View(Session["cart"]);
+            }
+            else
+            {
+                List<Carrito> cart = new List<Carrito>();
+                return View(cart);
+            }
         }
 
         public ActionResult Carrito()

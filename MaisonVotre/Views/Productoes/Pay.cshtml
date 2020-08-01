@@ -1,7 +1,16 @@
-﻿
+﻿@model IEnumerable<MaisonVotre.Models.Carrito.Carrito>
+
 @{
     ViewBag.Title = "Confirmar Pago";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var productlist = Model.ToList();
+    decimal total = 0;
+
+    foreach (var item in productlist)
+    {
+        total += item.SubTotal;
+    }
+}
 }
 
 <!DOCTYPE html>
@@ -15,40 +24,100 @@
     <br />
     <br />
     <br />
+
+
+    <h2>Pedido</h2>
+
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto.ProductoNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto.Productodescripcion)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Producto.Imagen)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Producto.ProductPrecio)
+            </th>
+        
+            <th align="center">
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTotal)
+            </th>
+           
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producto.ProductoNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producto.Productodescripcion)
+                </td>
+                @*<td>
+                        <img src="@Url.Content(item.Producto.Imagen)" width="200" height="100" alt="Alternate Text" />
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producto.ProductPrecio)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubTotal)
+                </td>
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            
+            <td>@total</td>
+        </tr>
+    </table>
     <br />
-        <div class="col-lg-7" id="paypal-button-container" onclick="guardar()">
-        </div>
+    <h3>ELIJE TU METODO DE PAGO</h3>
+    <br />
+    <div class="col-lg-12" id="paypal-button-container" onclick="guardar()">
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=AWuTyI3WCUpyqMcPVNGmnFXJ6ylSirubicrNhQkoAbU-VV3jLRmBSk7-qbZxf_OWmzSV37dYRe2UuW5J">
+        // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+    </script>
+
+    <script>
+        paypal.Buttons({
+            createOrder: function (data, actions) {
+                // This function sets up the details of the transaction, including the amount and line item details.
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '0.01'
+                        }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                // This function captures the funds from the transaction.
+                return actions.order.capture().then(function (details) {
+                    // This function shows a transaction success message to your buyer.
+                    alert('Transaction completed by ' + details.payer.name.given_name);
+                });
+            }
+        }).render('#paypal-button-container');
+                  //This function displays Smart Payment Buttons on your web page.
+    </script>
 </body>
 </html>
 
-<script src="https://www.paypal.com/sdk/js?client-id=AWuTyI3WCUpyqMcPVNGmnFXJ6ylSirubicrNhQkoAbU-VV3jLRmBSk7-qbZxf_OWmzSV37dYRe2UuW5J">
-    // Required. Replace SB_CLIENT_ID with your sandbox client ID.
-</script>
 
-
-<script>
-  paypal.Buttons({
-    createOrder: function(data, actions) {
-      // This function sets up the details of the transaction, including the amount and line item details.
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: @ViewBag.total
-          }
-        }]
-      });
-    },
-    onApprove: function(data, actions) {
-      // This function captures the funds from the transaction.
-      return actions.order.capture().then(function(details) {
-        // This function shows a transaction success message to your buyer.
-        alert('Transaction completed by ' + details.payer.name.given_name);
-      });
-    }
-  }).render('#paypal-button-container');
-  //This function displays Smart Payment Buttons on your web page.
-
-    function guardar() {
-        window.location = "Empresas/ViewEmpresas";
-    }
-</script>

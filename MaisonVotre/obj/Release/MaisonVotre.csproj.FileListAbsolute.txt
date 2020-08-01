@@ -134,3 +134,5 @@ C:\Users\Boris\source\repos\MaisonVotre\MaisonVotre\obj\Release\MaisonVotre.cspr
 C:\Users\Boris\source\repos\MaisonVotre\MaisonVotre\obj\Release\MaisonVotre.csproj.CopyComplete
 C:\Users\Boris\source\repos\MaisonVotre\MaisonVotre\obj\Release\MaisonVotre.dll
 C:\Users\Boris\source\repos\MaisonVotre\MaisonVotre\obj\Release\MaisonVotre.pdb
+C:\Users\Boris\source\repos\MaisonVotre\MaisonVotre\bin\PayPal.dll
+C:\Users\Boris\source\repos\MaisonVotre\MaisonVotre\bin\PayPal.xml

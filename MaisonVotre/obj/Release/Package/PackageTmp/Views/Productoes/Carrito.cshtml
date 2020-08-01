@@ -12,65 +12,66 @@
     }
 }
 
-    <h2>Pedido</h2>
+<h2>Pedido</h2>
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto.ProductoNombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto.Productodescripcion)
-            </th>
-            @*<th>
-            @Html.DisplayNameFor(model => model.Producto.Imagen)
-        </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.Producto.ProductPrecio)
-            </th>
-            <th></th>
-            <th align="center">
-                @Html.DisplayNameFor(model => model.Cantidad)
-            </th>
-            <th></th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubTotal)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
+<table class="table">
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Producto.ProductoNombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Producto.Productodescripcion)
-        </td>
-        @*<td>
-            <img src="@Url.Content(item.Producto.Imagen)" width="200" height="100" alt="Alternate Text" />
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Producto.ProductPrecio)
-        </td>
-        <td>
-           | @Html.ActionLink("-", "DownQuantity", new { id = item.Producto.ProductoId })
-        </td>
-        <td align="center">
-            @Html.DisplayFor(modelItem => item.Cantidad)
-        </td>
-        <td>
-           @Html.ActionLink("+", "AddtoCart", new { id = item.Producto.ProductoId }) |
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubTotal)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Producto.ProductoId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Producto.ProductoId }) |
-            @Html.ActionLink("Remover", "RemovefromCart", new { id = item.Producto.ProductoId })
-        </td>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto.ProductoNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto.Productodescripcion)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Producto.Imagen)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Producto.ProductPrecio)
+        </th>
+        <th></th>
+        <th align="center">
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTotal)
+        </th>
+        <th></th>
     </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto.ProductoNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto.Productodescripcion)
+            </td>
+            @*<td>
+                    <img src="@Url.Content(item.Producto.Imagen)" width="200" height="100" alt="Alternate Text" />
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto.ProductPrecio)
+            </td>
+            <td>
+                | @Html.ActionLink("-", "DownQuantity", new { id = item.Producto.ProductoId })
+            </td>
+            <td align="center">
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.ActionLink("+", "AddtoCart", new { id = item.Producto.ProductoId }) |
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubTotal)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Producto.ProductoId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Producto.ProductoId }) |
+                @Html.ActionLink("Remover", "RemovefromCart", new { id = item.Producto.ProductoId })
+            </td>
+        </tr>
     }
     <tr>
         <td></td>
@@ -81,6 +82,18 @@
         <td></td>
         <td>@total</td>
     </tr>
-    </table>
-    <p>@Html.ActionLink("Explorar más productos", "Index", "Productoes") |
-    @Html.ActionLink("Ir a Comprar", "Pagar", "Productoes")</p>
+</table>
+@if (total != 0)
+{
+    <p>
+        @Html.ActionLink("Explorar más productos", "Index", "Productoes") |
+        @Html.ActionLink("Ir a Comprar", "Pay", new { total = total })
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("El carrito está vacío . . Explorar Productos", "Index", "Productoes")
+    </p>
+}
+
