@@ -342,11 +342,12 @@
     <Content Include="Views\Home\ContactoComercio.cshtml" />
     <Content Include="Views\Productoes\Pay.cshtml" />
     <Content Include="Views\Home\GeoLocation.cshtml" />
-    <Content Include="Views\Empresas\ViewEmpresas.cshtml" />
+    <Content Include="Views\Productoes\ViewEmpresas.cshtml" />
+    <Content Include="Views\Productoes\ViewEmpresasAll.cshtml" />
+    <Content Include="Views\Productoes\ViewProductos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ContactModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
