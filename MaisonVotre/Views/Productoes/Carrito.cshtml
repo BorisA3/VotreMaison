@@ -61,14 +61,12 @@
                 @Html.DisplayFor(modelItem => item.Cantidad)
             </td>
             <td>
-                @Html.ActionLink("+", "AddtoCart", new { id = item.Producto.ProductoId }) |
+                @Html.ActionLink("+", "UpQuantity", new { id = item.Producto.ProductoId }) |
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SubTotal)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Producto.ProductoId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Producto.ProductoId }) |
                 @Html.ActionLink("Remover", "RemovefromCart", new { id = item.Producto.ProductoId })
             </td>
         </tr>
@@ -86,14 +84,12 @@
 @if (total != 0)
 {
     <p>
-        @Html.ActionLink("Explorar más productos", "Index", "Productoes") |
+        @Html.ActionLink("Explorar mas productos..", "ViewEmpresasAll", new { total = total }) |
         @Html.ActionLink("Ir a Comprar", "Pay", new { total = total })
     </p>
 }
 else
 {
-    <p>
-        @Html.ActionLink("El carrito está vacío . . Explorar Productos", "Index", "Productoes")
-    </p>
+    @Html.ActionLink("El carrito está vacío . . Explora Productos", "ViewEmpresasAll", new { total = total })
 }
 

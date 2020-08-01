@@ -52,7 +52,29 @@
                     @* INICIO DE MOSTRAR BOTON DE OPCIONES SI EL USUARIO TIENE EL ROL DE ADMIN *@
 
 
-                    <li>@Html.ActionLink("Ordenar", "ViewEmpresas", "Empresas")</li>
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                        <span class="nav-label">
+                            Ordenar
+                        </span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Deportes", "ViewEmpresas", "Productoes", new { cat = 2 }, new { @class = "text-danger" })</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Comida", "ViewEmpresas", "Productoes", new { cat = 1 }, new { @class = "text-danger" })</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Electrodomésticos", "ViewEmpresas", "Productoes", new { cat = 3 }, new { @class = "text-danger" })</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Ropa", "ViewEmpresas", "Productoes", new { cat = 4 }, new { @class = "text-danger" })</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Panaderias", "ViewEmpresas", "Productoes", new { cat = 6 }, new { @class = "text-danger" })</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Ferreterías", "ViewEmpresas", "Productoes", new { cat = 7 }, new { @class = "text-danger" })</li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")

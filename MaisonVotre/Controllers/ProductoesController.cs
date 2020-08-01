@@ -218,5 +218,23 @@ namespace MaisonVotre.Controllers
             return -1;
         }
 
+        public ActionResult ViewEmpresas(int cat)
+        {
+            var emps = db.Empresas.ToList().Where(c => c.CategoriaId == cat);
+            return View(emps);
+        }
+
+        public ActionResult ViewEmpresasAll()
+        {
+            var emps = db.Empresas.ToList();
+            return View(emps);
+        }
+
+        public ActionResult ViewProductos(int empresaid)
+        {
+            var productoes = db.Productoes.Include(p => p.Empresas).Include(c => c.Empresas.Categorias).Where(e => e.EmpresaId == empresaid);
+            return View(productoes.ToList());
+        }
+
     }
 }

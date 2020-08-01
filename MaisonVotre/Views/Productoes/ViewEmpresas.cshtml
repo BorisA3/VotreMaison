@@ -11,19 +11,25 @@
     <hr class="table-bordered" />
     <title>Floating Div Product Grid Demo</title>
     <style>
+        a.my-class { color: #fff }
+a.my-class:active { color: #fff }
+a.my-class:link { color: #fff }
+a.my-class:visited { color: #fff }
+
       /* Float container */
-      #p-float {
-        max-width: 1200px;
-        margin: 0 auto;
-        /* Clearfix */
-        overflow: auto;
-      }
-      #p-float::after {
-        /* Clearfix */
-        content: "";
-        clear: both;
-        display: table;
-      }
+        #p-float {
+            max-width: 1200px;
+            margin: 0 auto;
+            /* Clearfix */
+            overflow: auto;
+        }
+
+            #p-float::after {
+                /* Clearfix */
+                content: "";
+                clear: both;
+                display: table;
+            }
       /* Product items */
       div.p-float {
         float: left;
@@ -43,6 +49,7 @@
       div.p-name {
         font-weight: bold;
         font-size: 1.1em;
+        height: 30px;
       }
       div.p-price {
         color: #f44242;
@@ -63,7 +70,18 @@
         font-weight: bold;
         cursor: pointer;
       }
-      /* Responsive */
+      button.p-cat {
+        background: #3271bf;
+        color: #fff;
+        border: none;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 5px 5px 5px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+      }
+        /* Responsive */
       @*@media only screen and (max-width: 1024px) {
         div.p-float { width: 33%; }
       }
@@ -88,9 +106,6 @@
 
 
     <div class="row">
-        <div class="col-md-2" s>
-            <button class="p-add" onclick="">Ir</button>
-        </div>
 
         <div id="p-float">
             @foreach (var item in Model)
@@ -102,13 +117,15 @@
                         <img class="p-img" src="@Url.Content(item.EmpresaImagen)" />
                         <div class="p-price"><br /></div>
                         <div class="p-desc">@Html.DisplayFor(modelItem => item.EmpresaDescripcion)</div>
-                        <a href="../Productoes/Index"><button class="p-add">Realizar Pedido</button></a>
+                        <button class="p-add">@Html.ActionLink("Realizar Pedido", "ViewProductos", new { empresaid = item.EmpresaId }, new { @class = "my-class" })</button>
                     </div>
-
 
                 </div>
             }
         </div>
+
     </div>
+    
 </body>
 </html>
+
